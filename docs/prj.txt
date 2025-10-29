@@ -1,0 +1,23 @@
+Usage For Negatively Correlated Products
+Pairs Trading & Statistical Arbitrage Extensions
+Mean-reversion strategies on negatively correlated spreads
+Copula-based dependency modeling
+Diversified multi-pairs portfolios
+Dispersion/Correlation Trading Strategies
+Dispersion trading uses uncorrelated assets within a portfolio.
+Adapt derivatives dispersion strategies for negative or zero-correlation clusters, swaps.
+Network/AntiNetwork Analytics
+Anticorrelation networks suggest that "anticlusters" built on negative ties have alternative structures in risk and return dynamics.
+Find robust hedging combinations or risk buffers unseen with traditional correlation clustering.
+
+Project (Titles) Ideas
+Term Structure Clustering for Commodity Futures
+Cluster futures contracts by correlation and volatility term structure across maturities, helping promote deeper hedging activity and liquidity beyond front-month contracts.
+Portfolio Diversification across Maturities
+Identify low‑correlation or anticorrelated maturities within the same commodity to build risk‑balanced portfolios, which increases demand for back-month futures and improves curve liquidity.
+Dynamic Hedging Risk For Commodity Firms Using Cross‑Commodity Correlation Clustering or Regime Shifts + RL
+Cluster correlated energy futures (e.g., crude, ULSD, jet fuel) to design better cross‑hedging strategies for firms, driving volume into related contracts beyond the primary hedge instrument.
+Predicting Liquidity Shocks across Futures Contracts
+Use correlation of liquidity patterns to forecast spillovers in trading activity, enabling CME to manage liquidity risk proactively and support more stable markets.
+Correlation/Anticorrelation Map of Products + Gen AI
+Help traders and risk managers easily act on complex correlation data by explaining shifting relationships, suggest new cross‑hedging ideas, and generate natural language reports. (I had the idea from seeing the supply chain diagrams of commodity products from Bloomberg Terminal).
