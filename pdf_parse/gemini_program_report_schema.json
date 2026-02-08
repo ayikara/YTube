@@ -1,0 +1,191 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ProgramReport",
+  "type": "object",
+  "required": [
+    "report_metadata",
+    "sections"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "report_metadata": {
+      "type": "object",
+      "required": [
+        "title",
+        "report_date",
+        "program_name"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "program_name": {
+          "type": "string"
+        },
+        "report_date": {
+          "type": "string",
+          "description": "ISO date YYYY-MM-DD"
+        },
+        "source_filename": {
+          "type": "string"
+        },
+        "period": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "monthly",
+                "quarterly",
+                "other"
+              ]
+            },
+            "start": {
+              "type": "string"
+            },
+            "end": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "sections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "section_number",
+          "heading",
+          "content_type"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "section_number": {
+            "type": "string",
+            "description": "E.g., '1', '6', '7'"
+          },
+          "heading": {
+            "type": "string"
+          },
+          "content_type": {
+            "type": "string",
+            "enum": [
+              "text",
+              "table",
+              "mixed"
+            ]
+          },
+          "text": {
+            "type": "string"
+          },
+          "subsections": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "subsection_number",
+                "heading",
+                "content_type"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "subsection_number": {
+                  "type": "string",
+                  "description": "E.g., '6.1'"
+                },
+                "heading": {
+                  "type": "string"
+                },
+                "content_type": {
+                  "type": "string",
+                  "enum": [
+                    "text",
+                    "table",
+                    "mixed"
+                  ]
+                },
+                "text": {
+                  "type": "string"
+                },
+                "table": {
+                  "$ref": "#/$defs/table_object"
+                },
+                "citations": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/citation"
+                  }
+                }
+              }
+            }
+          },
+          "table": {
+            "$ref": "#/$defs/table_object"
+          },
+          "citations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/citation"
+            }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "citation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "page"
+      ],
+      "properties": {
+        "page": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "note": {
+          "type": "string"
+        }
+      }
+    },
+    "table_object": {
+      "type": "object",
+      "required": [
+        "title",
+        "kind",
+        "columns",
+        "rows"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "kv_pairs",
+            "matrix"
+          ]
+        },
+        "columns": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "rows": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true
+          }
+        }
+      }
+    }
+  }
+}
