@@ -1,0 +1,22 @@
+Your role is an expert in AI who has expertise in using LLM and coding tools to develop applications. I am using Gemini Code Assist from a Cloud Workstation. All the development and applications are in Google Cloud. Please provide a Gemini.md file for creating a python based application with following details Use Jupyter note book to develop script Use .py file to develop script/application The script need to access database in Google Big Query The python script does data transformation It uses pandas, numpy Does plenty of pandas data frames for analysis Before generating the Gemini.md, do you have any questions for me or need any clarification
+
+Let us first generate the Gemini.md for creating .py files. We use visual studio code and Gemini Code Assist in Google Cloud worksttion. The .py is run either manually or scheduled using Argo workflow. However currently we are concentrating on running manually for data transformation, data analysis, visualization etc The Big Query Authentication is set up using default service account There is no IAM role set up needed, as all are taken care Data transformation include cleaning, aggregation, group by, Joins etc It would involve feature engineering and occasionally have heavy joins The data size is expected to Medium 1- 10 GB size For this we should have a production ready structure please include Logging setup? Config management (YAML / env vars)? Error handling patterns? Please include the following Cloud Storage (GCS) for intermediate data? BigQuery write-back (i.e., save transformed data back)? Need the Gemini Code Assist Context both as As a coding guideline doc for Gemini? Or as a prompt/context file that Gemini uses while generating code? Please include Should I include: requirements.txt Virtual environment setup (venv ) Testing & Validation Include Basic unit test structure Data validation (e.g., schema checks with pandas ) Also include functional tests generation . I need Gemini.md fully production grade Could you review the above response? Do you have any further questions or clarifications?
+
+BigQuery Interaction Pattern SQL-first approach (push heavy joins/aggregations to BigQuery, then pandas for final steps) DataFrame Size Handling Strategy - enforce BigQuery Storage API + chunking best practices GCS for intermediate storage (Parquet) Visualization Inline plots (matplotlib/seaborn) saved as files Config Scope - runtime params (table names, filters) and also transformation logic (e.g., feature flags, column mappings)? Packaging - also transformation logic (e.g., feature flags, column mappings)? Full testing (unit + functional + mocks) Logging - both console + file, JSON-ready Error handling - Fail-fast (preferred for pipelines) Secrets - strictly rely on GCP environment Please go ahead and generate a production-grade Gemini.md
+
+
+-------
+My Recommendation (Default Assumptions)
+
+If you don’t want to answer all of the above, I’ll proceed with:
+
+SQL-heavy BigQuery + pandas refinement
+BigQuery Storage API usage
+Modular production-ready Python package
+YAML config for runtime + transformations
+Logging (console + file, structured-ready)
+Retry handling for GCP APIs
+GCS for intermediate storage (Parquet)
+Visualization saved as files
+Full testing (unit + functional + mocks)
+.env + YAML hybrid config
